@@ -23,16 +23,17 @@
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     btn.layer.borderWidth = .8;
     btn.layer.cornerRadius = 3;
-    [btn setTitle:@"SSL Info" forState:UIControlStateNormal];
+    [btn setTitle:@"Print SSL Info" forState:UIControlStateNormal];
     btn.layer.borderColor = btn.titleLabel.textColor.CGColor;
-    btn.frame = CGRectMake(10, 10, 200, 35);
+    btn.frame = CGRectMake(10, 10, 220, 35);
     btn.center = self.window.center;
     [btn addTarget:self action:@selector(sslInfomation) forControlEvents:UIControlEventTouchUpInside];
     [self.window addSubview:btn];
 }
 
 - (void)sslInfomation {
-    
+    if ([[UIApplication sharedApplication] isNetworkActivityIndicatorVisible]) return;
+        
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://www.mozilla.org/en-US/"]];
     [NSURLConnection connectionWithRequest:req delegate:self];
@@ -45,8 +46,7 @@
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
-    //[ZKSSLHandler printSSLCertificate:challenge.protectionSpace];
-    NSLog(@"Is ssl verified: %@", @([ZKSSLHandler verifySSLCertificates:challenge.protectionSpace]));
+    [ZKSSLHandler printSSLCertificate:challenge.protectionSpace];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {

@@ -405,7 +405,9 @@
 					"$(PROJECT_DIR)/ZKSSLPinning",
 					"\"$(SRCROOT)/ZKSSLPinning/openssl\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -426,7 +428,9 @@
 					"$(PROJECT_DIR)/ZKSSLPinning",
 					"\"$(SRCROOT)/ZKSSLPinning/openssl\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -449,6 +453,7 @@
 				B3FA5B591A89C446000BC5C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
