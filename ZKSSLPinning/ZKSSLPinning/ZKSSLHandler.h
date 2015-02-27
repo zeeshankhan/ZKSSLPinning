@@ -1,9 +1,9 @@
 //
 //  ZKSSLHandler.h
-//  ZKCryptography
+//  ZKSSLPinning
 //
-//  Created by Zeeshan Khan on 11/02/14.
-//  Copyright (c) 2014 Zeeshan. All rights reserved.
+//  Created by Zeeshan Khan on 14/02/15.
+//  Copyright (c) 2015 Zeeshan. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
